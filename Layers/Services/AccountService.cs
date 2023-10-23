@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Layers.Services
 {
-    public class AccountService
+    public class AccountService : IAccountService, IService
     {
         private AccountRepo accountRepo;
         public AccountService() {
@@ -30,13 +30,18 @@ namespace Layers.Services
             DateTime startDate = DateTime.Now.AddDays(-5);
 
             if (age < ageRestriction) return false;
-            Account account = new Account();
+            Account account = new Account(85);
             account.Name = name;
             account.Age = age;
             account.Balance = DateTime.Now > startDate ? 200 : 0;
            
             accountRepo.Create(account);
             return true;
+        }
+
+        public string ReturnName()
+        {
+            throw new NotImplementedException();
         }
     }
 }

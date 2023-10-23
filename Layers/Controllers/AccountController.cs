@@ -10,7 +10,7 @@ namespace Layers.Controllers
 {
     public class AccountController
     {
-        private AccountService accountService;
+        private IAccountService accountService;
         public AccountController() {
             accountService = new AccountService();
         }
